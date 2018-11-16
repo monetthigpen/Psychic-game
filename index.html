@@ -2,14 +2,73 @@
 <html>
     <head>
         <link type="stylesheet" src="assets/css/style.css">
-        <script type="text/javascript" src="assets/javascript/game.js"></script>
+        
     </head>
+    
    
     <body>
        <h1>Guess what letter I'm thinking of</h1> 
-       <span id="wins"><p>Wins:</p></span>
-       <span id="losses"><p>Losses:</p></span>
-       <span id="guessesLeft"><p>Guesses Left:</p></span>
-       <span id="lettersGuessed"><p>Your Guesses So Far:</p></span>
+       <p>Wins: <span id="wins"></span></p>
+       <p>Losses: <span id="losses"></span></p>
+       <p>Guesses Left: <span id="guessesLeft"></span></p>
+       <p>Your Guesses So Far: <span id="lettersGuessed"></span></p>
     </body>
+    <script>
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        var letterTooguess = ["v","y","e","d","h","k"];
+       
+
+        var winsElement = document.getElementById("wins");
+        var lossesElement = document.getElementById("losses");
+        var guessesLeftElement = document.getElementById("guessesLeft");
+        var lettersGuessedElement = document.getElementById("lettersGuessed");
+        var computerGuess = letterTooguess[Math.floor(Math.random() * letterTooguess.length ) ];
+
+        document.onkeyup = function(event){
+   
+    
+            var userGuess = event.key;
+            
+             
+
+           
+            lettersGuessedElement.textContent = userGuess;
+           
+            //var userGuessElement.textContent = userGuess;
+    
+    
+           if(userGuess === computerGuess){
+              wins++; 
+              winsElement.textContent = wins;
+              //console.log(wins);
+            }
+            else{
+              losses++ ;
+              lossesElement.textContent = losses;
+              guessesLeft-- > 0;
+              guessesLeftElement.textContent = guessesLeft;
+              
+             
+
+
+            } 
+            //for( var i = 0; i < letterTooguess.length; i++){
+               
+              
+               
+                   
+                    
+                     
+                
+           // } 
+            //get userGuess to display guesses
+            //get guesses so far to be shown
+   
+
+        };
+
+    </script>
+
 </html>
