@@ -30,42 +30,28 @@
    
     
             var userGuess = event.key;
-            
-             
-
-           
+        
             lettersGuessedElement.textContent = userGuess;
+            document.getElementById("lettersGuessed").getAttribute("userGuess")
+        
+               if(userGuess === computerGuess){
+                 wins++; 
+                 winsElement.textContent = wins;
+                }
+               else{
+                 losses++ ;
+                 lossesElement.textContent = losses;
+                 guessesLeft-- < 9;
+                 guessesLeftElement.textContent = guessesLeft;
+                 
+                }
+                if(guessesLeft === 0){
+                    alert("Opps! You have exceeded the number of guesses. You lose! Try again!")
+                    location.reload()
+
+                }
+
            
-            //var userGuessElement.textContent = userGuess;
-    
-    
-           if(userGuess === computerGuess){
-              wins++; 
-              winsElement.textContent = wins;
-              //console.log(wins);
-            }
-            else{
-              losses++ ;
-              lossesElement.textContent = losses;
-              guessesLeft-- > 0;
-              guessesLeftElement.textContent = guessesLeft;
-              
-             
-
-
-            } 
-            //for( var i = 0; i < letterTooguess.length; i++){
-               
-              
-               
-                   
-                    
-                     
-                
-           // } 
-            //get userGuess to display guesses
-            //get guesses so far to be shown
-   
 
         };
 
