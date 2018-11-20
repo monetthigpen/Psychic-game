@@ -2,7 +2,6 @@
 <html>
     <head>
         <link type="stylesheet" src="assets/css/style.css">
-        
     </head>
     
    
@@ -19,6 +18,7 @@
         var guessesLeft = 9;
         var letterTooguess = ["v","y","e","d","h","k"];
         var lettersGuessed = [];
+        
        
 
         var winsElement = document.getElementById("wins");
@@ -31,8 +31,14 @@
    
     
             var userGuess = event.key;
+            userGuess = userGuess.toLowerCase();
+
         
-           lettersGuessedElement.textContent= userGuess;//.join();
+           //lettersGuessedElement.textContent = userGuess;
+           
+           lettersGuessed.push(userGuess);
+           lettersGuessedElement.textContent = lettersGuessed.join(", ");
+                    //console.log(lettersGuessed); 
             //document.getElementById("lettersGuessed").getAttribute("userGuess")
         
                if(userGuess === computerGuess){
@@ -40,19 +46,28 @@
                  winsElement.textContent = wins;
                  lettersGuessed = [];
                 }
-                else{
-                 guessesLeft-- < 9;
-                 guessesLeftElement.textContent = guessesLeft;
-                }
-                if(guessesLeft === 0){
+               if (guessesLeft === 0){
                     //alert("Opps! You have exceeded the number of guesses. You lose! Try again!")
                     losses++ ;
                     lossesElement.textContent = losses;
-                    guessesLeft.clear(
-                        guessesLeft >= 0,
-                        lettersGuessedElement);
+                    guessesLeft = 9;
+                    guessesLeft.reload(
+                        guessesLeft >= 0);
+                  for(var i = 0; i < lettersGuessed.length; i++){
+                      lettersGuessed.clear(
+                        lettersGuessed[i] = 9)
+                  };
+
+                    
 
                 }
+
+                else {
+                 guessesLeft-- < 9;
+                 guessesLeftElement.textContent = guessesLeft;
+                 
+                }
+                // .push[]
                 
         
 
